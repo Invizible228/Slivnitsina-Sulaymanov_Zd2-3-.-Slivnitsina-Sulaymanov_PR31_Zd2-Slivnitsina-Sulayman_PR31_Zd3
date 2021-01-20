@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b470bf03743c410b8d4222aa92fa1fa7" Name="Diagram1">
+        <EntityTypeShape EntityType="MarathonModel.Charity" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarathonModel.Country" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarathonModel.Event" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarathonModel.EventType" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarathonModel.Gender" Width="1.5" PointX="3.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarathonModel.Position" Width="1.5" PointX="3.75" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarathonModel.RaceKitOption" Width="1.5" PointX="6" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarathonModel.Registration" Width="1.5" PointX="8.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarathonModel.RegistrationEvent" Width="1.5" PointX="10.5" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarathonModel.RegistrationStatus" Width="1.5" PointX="6" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarathonModel.Role" Width="1.5" PointX="1.5" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarathonModel.Runner" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarathonModel.Sponsorship" Width="1.5" PointX="10.5" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarathonModel.Staff" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarathonModel.Timesheet" Width="1.5" PointX="8.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarathonModel.User" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarathonModel.user3" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarathonModel.Volunteer" Width="1.5" PointX="6" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="MarathonModel.FK_Registration_Charity" ManuallyRouted="false" />
+        <AssociationConnector Association="MarathonModel.FK_Marathon_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="MarathonModel.FK_Runner_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="MarathonModel.FK_Volunteer_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="MarathonModel.FK_Event_EventType" ManuallyRouted="false" />
+        <AssociationConnector Association="MarathonModel.FK_Event_Marathon" ManuallyRouted="false" />
+        <AssociationConnector Association="MarathonModel.FK_RegistrationEvent_Event" ManuallyRouted="false" />
+        <AssociationConnector Association="MarathonModel.FK_Runner_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="MarathonModel.FK_Volunteer_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="MarathonModel.FK_Staff_Position" ManuallyRouted="false" />
+        <AssociationConnector Association="MarathonModel.FK_Registration_RaceKitOption" ManuallyRouted="false" />
+        <AssociationConnector Association="MarathonModel.FK_Registration_RegistrationStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="MarathonModel.FK_Registration_Runner" ManuallyRouted="false" />
+        <AssociationConnector Association="MarathonModel.FK_RegistrationEvent_Registration" ManuallyRouted="false" />
+        <AssociationConnector Association="MarathonModel.FK_Sponsorship_Registration" ManuallyRouted="false" />
+        <AssociationConnector Association="MarathonModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="MarathonModel.FK_Runner_User" ManuallyRouted="false" />
+        <AssociationConnector Association="MarathonModel.FK_Staff_User" ManuallyRouted="false" />
+        <AssociationConnector Association="MarathonModel.FK_Timesheet_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="MarathonModel.FK_Volunteer_User" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
