@@ -21,6 +21,9 @@ namespace MaraphonSkills.Pages
     /// </summary>
     public partial class LoginPage : Page
     {
+        /// <summary>
+        /// 
+        /// </summary>
         DispatcherTimer newTimer;
         private int WrongTypes = 0;
         private int timeValue;
