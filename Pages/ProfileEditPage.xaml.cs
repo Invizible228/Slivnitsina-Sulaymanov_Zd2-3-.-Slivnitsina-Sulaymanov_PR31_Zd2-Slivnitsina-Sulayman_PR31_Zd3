@@ -26,6 +26,8 @@ namespace MaraphonSkills.Pages
             context = new Core.MarathonEntities();
             InitializeComponent();
 
+            // Core.Runner currentRunner = context.Runner.Where(x=>x.Email = );
+
             EmailTextBox.Text = Properties.Settings.Default.currentUserEmail.ToString();
 
 
