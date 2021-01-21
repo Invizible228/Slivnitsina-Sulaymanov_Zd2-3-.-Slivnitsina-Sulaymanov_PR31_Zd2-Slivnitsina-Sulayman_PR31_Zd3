@@ -18,7 +18,8 @@
             <TextBlock Text="Пожалуйста авторизируйтесь в системе, используя ваш адрес электронной почты и пароль." TextWrapping="Wrap"/>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Email:" Style="{StaticResource DescriptionTextBlock}"/>
-                <TextBox x:Name="EmailTextBox" Width="150" TabIndex="0">
+                <TextBox x:Name="EmailTextBox" Width="150" TabIndex="0" Height="30">
+                    
                     <TextBox.Style>
                         <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
                             <Style.Resources>
@@ -35,7 +36,7 @@
                                 </VisualBrush>
                             </Style.Resources>
                             <Style.Triggers>
-                                <Trigger Property="Text" Value=" ">
+                                <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
                                     <Setter Property="Background" Value="{StaticResource CueBannerBrush}"/>
                                 </Trigger>
                                 <Trigger Property="Text" Value="{x:Null}">
@@ -53,14 +54,14 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Password:" Style="{StaticResource DescriptionTextBlock}"/>
-                <PasswordBox x:Name="PasswordTextBox" Width="150" TabIndex="1" IsTabStop="True"/>
+                <PasswordBox x:Name="PasswordTextBox" Width="150" TabIndex="1" IsTabStop="True" Height="30"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center">
                 <TextBlock Text="Капча:" HorizontalAlignment="Center"/>
                 <Border BorderBrush="Black" BorderThickness="2" Width="auto">
                     <TextBlock x:Name="CapchaTextBlock" FontSize="20" Width="auto" HorizontalAlignment="Center"/>
                 </Border>
-                <TextBox x:Name="CapchaTextBox" Width="150" HorizontalAlignment="Center" Margin="10"/>
+                <TextBox x:Name="CapchaTextBox" Width="150" HorizontalAlignment="Center" Margin="10" Height="30"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Border Style="{StaticResource SmallButtonBorder}" x:Name="LoginButton" MouseLeftButtonDown="LoginButton_MouseLeftButtonDown">

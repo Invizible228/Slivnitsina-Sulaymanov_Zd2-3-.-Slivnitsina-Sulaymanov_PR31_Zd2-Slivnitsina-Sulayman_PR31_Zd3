@@ -135,8 +135,8 @@ namespace MaraphonSkills.Pages
             {
                 try
                 {
-                    Core.User newUser = context.User.Where(x => x.Email == EmailTextBox.Text).First();
-                    if (newUser == null) 
+                    int newUser = context.User.Where(x => x.Email == EmailTextBox.Text).Count();
+                    if (newUser == 0) 
                     {
                         Core.Volunteer volunteer = new Core.Volunteer();
                         Core.User user = new Core.User();
@@ -157,10 +157,13 @@ namespace MaraphonSkills.Pages
                         context.Volunteer.Add(volunteer);
 
                         context.SaveChanges();
+                        Properties.Settings.Default.currentUserEmail = EmailTextBox.Text;
+                        this.NavigationService.Navigate(new ViewerMenuPage());
 
+                        
 
                         MessageBox.Show("Регистрация прошла успешно");
-                        this.NavigationService.GoBack();
+                        
                     }
                     else
                     {

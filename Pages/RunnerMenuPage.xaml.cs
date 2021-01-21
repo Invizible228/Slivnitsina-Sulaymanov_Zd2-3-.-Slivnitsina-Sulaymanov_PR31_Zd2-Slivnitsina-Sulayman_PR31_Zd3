@@ -29,5 +29,10 @@ namespace MaraphonSkills.Pages
         {
             this.NavigationService.Navigate(new ProfileEditPage());
         }
+
+        private void ContactsButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

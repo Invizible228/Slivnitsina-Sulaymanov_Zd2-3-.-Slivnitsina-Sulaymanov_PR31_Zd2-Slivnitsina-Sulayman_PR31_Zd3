@@ -21,9 +21,6 @@ namespace MaraphonSkills.Pages
     /// </summary>
     public partial class LoginPage : Page
     {
-        /// <summary>
-        /// 
-        /// </summary>
         DispatcherTimer newTimer;
         private int WrongTypes = 0;
         private int timeValue;
@@ -77,6 +74,9 @@ namespace MaraphonSkills.Pages
                     {
                         case 1:
                             this.NavigationService.Navigate(new RunnerMenuPage());
+                            break;
+                        case 3:
+                            this.NavigationService.Navigate(new ViewerMenuPage());
                             break;
                     }
                 }
@@ -144,6 +144,9 @@ namespace MaraphonSkills.Pages
             for (int i = 0; i < 5; ++i)
                 textCapcha += ALF[rnd.Next(ALF.Length)];
             CapchaTextBlock.Text = textCapcha;
+            RotateTransform capchaRotate = new RotateTransform();
+            capchaRotate.Angle = rnd.Next(20)-10;
+            CapchaTextBlock.RenderTransform = capchaRotate;
         }
 
         /// <summary>

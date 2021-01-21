@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using MarathonLibrary;
 
 namespace MaraphonSkills.Pages
 {
@@ -111,14 +112,25 @@ namespace MaraphonSkills.Pages
         private void RegistrationButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             SetBorders();
+
+            StringCheck stringCheck = new StringCheck();
             string errorMessage = null;
             List<string> errorsList = new List<string>();
-            if (String.IsNullOrEmpty(EmailTextBox.Text)|| String.IsNullOrWhiteSpace(EmailTextBox.Text))
+            if (String.IsNullOrEmpty(EmailTextBox.Text) || String.IsNullOrWhiteSpace(EmailTextBox.Text))
             {
                 errorsList.Add("Email");
                 EmailTextBox.BorderThickness = new Thickness(3);
-                EmailTextBox.BorderBrush =  Brushes.Red;
+                EmailTextBox.BorderBrush = Brushes.Red;
 
+            }
+            else
+            {
+                if (stringCheck.EmailCheck(EmailTextBox.Text) == false)
+                {
+                    errorsList.Add("Email введён неверно");
+                    EmailTextBox.BorderThickness = new Thickness(3);
+                    EmailTextBox.BorderBrush = Brushes.Red;
+                }
             }
 
             if (String.IsNullOrEmpty(PasswordTextBox.Password)||String.IsNullOrWhiteSpace(PasswordTextBox.Password))
@@ -162,6 +174,9 @@ namespace MaraphonSkills.Pages
                 FirstNameTextBox.BorderThickness = new Thickness(3);
                 FirstNameTextBox.BorderBrush = Brushes.Red;
             }
+            else
+            {
+            }
             
             if (String.IsNullOrEmpty(LastNameTextBox.Text) || String.IsNullOrWhiteSpace(LastNameTextBox.Text))
             {
@@ -178,6 +193,17 @@ namespace MaraphonSkills.Pages
                 PasswordRepeatTextBox.BorderThickness = new Thickness(3);
                 PasswordRepeatTextBox.BorderBrush = Brushes.Red;
             }
+            else
+            {
+                if (stringCheck.PasswordCheck(PasswordTextBox.Password)==false)
+                {
+                    errorMessage = "Пароль введён неправильно";
+                    PasswordTextBox.BorderThickness = new Thickness(3);
+                    PasswordTextBox.BorderBrush = Brushes.Red;
+                    PasswordRepeatTextBox.BorderThickness = new Thickness(3);
+                    PasswordRepeatTextBox.BorderBrush = Brushes.Red;
+                }
+            }
 
             if(errorsList.Count>0)
                 errorMessage += "Пропущены обязательные к заполнению поля:\n";
@@ -192,31 +218,32 @@ namespace MaraphonSkills.Pages
             {
                 try
                 {
-                    User newUser = context.User.Where(x => x.Email == EmailTextBox.Text).First();
-                    if (newUser == null)
+                    int newUser = context.User.Where(x => x.Email == EmailTextBox.Text).Count();
+                    if (newUser == 0)
                     {
                         Runner runner = new Runner();
-                User user = new User();
+                        User user = new User();
 
-                user.Email = EmailTextBox.Text;
-                user.Password = PasswordTextBox.Password;
-                user.FirstName = FirstNameTextBox.Text;
-                user.LastName = LastNameTextBox.Text;
-                user.RoleId = 1;
+                        user.Email = EmailTextBox.Text;
+                        user.Password = PasswordTextBox.Password;
+                        user.FirstName = FirstNameTextBox.Text;
+                        user.LastName = LastNameTextBox.Text;
+                        user.RoleId = 1;
 
-                runner.Email = EmailTextBox.Text;
-                runner.Gender = GenderComboBox.SelectedValue.ToString();
-                runner.DateOfBirth = DateOfBirthDatePicker.SelectedDate.Value;
-                runner.CountryCode = CountryComboBox.SelectedValue.ToString();
-                runner.Img = imageByte;
+                        runner.Email = EmailTextBox.Text;
+                        runner.Gender = GenderComboBox.SelectedValue.ToString();
+                        runner.DateOfBirth = DateOfBirthDatePicker.SelectedDate.Value;
+                        runner.CountryCode = CountryComboBox.SelectedValue.ToString();
+                        runner.Img = imageByte;
 
-                context.User.Add(user);
-                context.Runner.Add(runner);
+                        context.User.Add(user);
+                        context.Runner.Add(runner);
 
-                context.SaveChanges();
+                        context.SaveChanges();
 
-                MessageBox.Show("Регистрация прошла успешно");
-                this.NavigationService.GoBack();
+                        MessageBox.Show("Регистрация прошла успешно");
+                        Properties.Settings.Default.currentUserEmail = EmailTextBox.Text;
+                        this.NavigationService.Navigate(new RunnerMenuPage());
             }
                     else
             {

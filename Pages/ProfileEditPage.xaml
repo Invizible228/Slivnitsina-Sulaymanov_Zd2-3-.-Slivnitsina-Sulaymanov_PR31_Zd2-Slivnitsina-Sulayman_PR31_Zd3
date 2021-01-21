@@ -32,7 +32,7 @@
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Email:" Style="{StaticResource DescriptionTextBlock}"/>
-                    <TextBox x:Name="EmailTextBox" BorderThickness="0" IsReadOnly="True" />
+                    <TextBox x:Name="EmailTextBox" BorderThickness="0" IsReadOnly="True"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Имя:" Style="{StaticResource DescriptionTextBlock}"/>
@@ -44,7 +44,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Пол:" Style="{StaticResource DescriptionTextBlock}"/>
-                    <ComboBox x:Name="GenderComboBox" />
+                    <ComboBox x:Name="GenderComboBox"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Дата рождения:" Style="{StaticResource DescriptionTextBlock}"/>
@@ -56,12 +56,12 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel>
-                <Image/>
+                <Image x:Name="RunnerImage" Height="50" Width="50"/>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Фото файл:"/>
                     <TextBox x:Name="PhotoPathTextBox" Width="auto" IsReadOnly="True" BorderThickness="0"/>
-                    <Border Style="{StaticResource SmallButtonBorder}" Margin="0" Height="30" x:Name="FileButton">
-                        <TextBlock Text="Просмотр..."/>
+                    <Border Style="{StaticResource SmallButtonBorder}" Margin="0" Height="30" x:Name="FileButton" MouseLeftButtonDown="FileButton_MouseLeftButtonDown">
+                        <TextBlock Text="Просмотр..." />
                     </Border>
                 </StackPanel>
                 <Label Content="Смена пароля"/>
@@ -75,5 +75,13 @@
                     <PasswordBox x:Name="PasswordRepeatTextBox"/></StackPanel>
             </StackPanel>
         </WrapPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <Border Style="{StaticResource SmallButtonBorder}" x:Name="SaveButton" MouseLeftButtonDown="SaveButton_MouseLeftButtonDown">
+                <TextBlock Text="Сохранить"/>
+            </Border>
+            <Border Style="{StaticResource SmallButtonBorder}" x:Name="CancelButton" MouseLeftButtonDown="CancelButton_MouseLeftButtonDown">
+                <TextBlock Text="Отмена"/>
+            </Border>
+        </StackPanel>
     </Grid>
 </Page>

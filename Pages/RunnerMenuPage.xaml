@@ -23,7 +23,7 @@
             <Border Style="{StaticResource BigButtonBorder}">
                 <TextBlock Text="Мой спонсор" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Border>
-            <Border Style="{StaticResource BigButtonBorder}">
+            <Border Style="{StaticResource BigButtonBorder}" x:Name="ContactsButton" MouseLeftButtonDown="ContactsButton_MouseLeftButtonDown">
                 <TextBlock Text="Контакты" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </Border>
         </UniformGrid>

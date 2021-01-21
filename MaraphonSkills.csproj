@@ -188,6 +188,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\ViewerMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ViewerRegistrationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -223,6 +227,9 @@
     </Compile>
     <Compile Include="Pages\StartingPage.xaml.cs">
       <DependentUpon>StartingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ViewerMenuPage.xaml.cs">
+      <DependentUpon>ViewerMenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ViewerRegistrationPage.xaml.cs">
       <DependentUpon>ViewerRegistrationPage.xaml</DependentUpon>
@@ -266,7 +273,9 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Fonts\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Core\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -278,6 +287,12 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MarathonLibrary\MarathonLibrary.csproj">
+      <Project>{153fc9a9-c0d4-4bdf-a156-f938c48f9882}</Project>
+      <Name>MarathonLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

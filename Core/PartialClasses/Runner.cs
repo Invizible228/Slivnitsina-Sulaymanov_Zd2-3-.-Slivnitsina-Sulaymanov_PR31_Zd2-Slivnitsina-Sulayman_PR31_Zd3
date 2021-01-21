@@ -22,5 +22,10 @@ namespace MaraphonSkills.Core
                 }
                 return visibleImage;
             } }
+
+        public string Age { get 
+            {
+                return (DateTime.Now.Year - DateOfBirth.Year).ToString()+" Лет";
+            } }
     }
 }
