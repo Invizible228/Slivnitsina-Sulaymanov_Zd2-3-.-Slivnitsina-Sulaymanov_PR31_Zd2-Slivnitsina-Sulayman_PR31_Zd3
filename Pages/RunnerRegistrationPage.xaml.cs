@@ -241,10 +241,10 @@ namespace MaraphonSkills.Pages
 
                         context.SaveChanges();
 
-                        MessageBox.Show("Регистрация прошла успешно");
+                        //MessageBox.Show("Регистрация прошла успешно");
                         Properties.Settings.Default.currentUserEmail = EmailTextBox.Text;
-                        this.NavigationService.Navigate(new RunnerMenuPage());
-            }
+                        this.NavigationService.Navigate(new WelcomePage());
+                    }
                     else
             {
                 throw new Exception("Пользователь с таким Email уже существует");

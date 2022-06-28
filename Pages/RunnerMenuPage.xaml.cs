@@ -23,6 +23,8 @@ namespace MaraphonSkills.Pages
         public RunnerMenuPage()
         {
             InitializeComponent();
+
+            ContactsBorder.Visibility = Visibility.Collapsed;
         }
 
         private void ProfileEditButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -32,7 +34,29 @@ namespace MaraphonSkills.Pages
 
         private void ContactsButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            ContactsBorder.Visibility = Visibility.Visible;
 
+        }
+
+        private void Cross_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+            ContactsBorder.Visibility = Visibility.Collapsed;
+        }
+
+        private void MyResultsButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.NavigationService.Navigate(new MyResultsPage());
+        }
+
+        private void MySponsorButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.NavigationService.Navigate(new MySponsorPage());
+        }
+
+        private void GoToRegisterButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.NavigationService.Navigate(new MarathonRegistrationPage());
         }
     }
 }

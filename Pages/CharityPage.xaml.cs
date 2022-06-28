@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaraphonSkills.Core.API;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,12 @@ namespace MaraphonSkills.Pages
 
             InitializeComponent();
 
-            CharityItemsControl.ItemsSource = context.Charity.ToList();
+            CharityItemsControl.ItemsSource = context.Charity.ToList(); //CharityAPI.GetCharityList();
+        }
+
+        private void PageLoaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

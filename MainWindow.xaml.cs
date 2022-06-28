@@ -24,7 +24,6 @@ namespace MaraphonSkills
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
         public DateTime startTime ;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -44,8 +43,10 @@ namespace MaraphonSkills
         /// </summary>
         public void TimerDate()
         {
-            Timer tmr = new Timer();
-            tmr.Interval = 1000;
+            Timer tmr = new Timer
+            {
+                Interval = 1000
+            };
             tmr.Elapsed += Tmr_Elapsed;
 
             tmr.Start();

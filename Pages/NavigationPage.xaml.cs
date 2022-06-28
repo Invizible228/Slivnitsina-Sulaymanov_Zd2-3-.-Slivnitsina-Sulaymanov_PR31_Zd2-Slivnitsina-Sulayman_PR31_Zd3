@@ -20,7 +20,7 @@ namespace MaraphonSkills.Pages
     /// <summary>
     /// Логика взаимодействия для NavigationPage.xaml
     /// </summary>
-    public partial class NavigationPage : Page
+    public partial class NavigationPage : Page/*, INotifyPropertyChanged*/
     {
         public NavigationPage(int pageNumber)
         {
@@ -45,6 +45,9 @@ namespace MaraphonSkills.Pages
                 case 5:
                     NavigationFrame.NavigationService.Navigate(new LoginPage());
                     break;
+                case 6:
+                    NavigationFrame.NavigationService.Navigate(new WelcomePage());
+                    break;
             }
 
             if (!String.IsNullOrEmpty(Properties.Settings.Default.currentUserEmail)||!String.IsNullOrWhiteSpace(Properties.Settings.Default.currentUserEmail))
@@ -54,6 +57,19 @@ namespace MaraphonSkills.Pages
             }
 
         }
+
+        //public event PropertyChangedEventHandler PropertyChanged;
+
+        //public bool UserIsLogIn { get {
+        //        if (String.IsNullOrEmpty(Properties.Settings.Default.currentUserEmail) || String.IsNullOrWhiteSpace(Properties.Settings.Default.currentUserEmail))
+        //        { 
+        //            return false;
+        //        }
+        //        else
+        //        {
+        //            return true;
+        //        }
+        //    } }
 
         /// <summary>
         /// Действия кнопки возврата
@@ -65,11 +81,18 @@ namespace MaraphonSkills.Pages
             this.NavigationService.GoBack();
         }
 
+        /// <summary>
+        /// Кнопка для выхода из своего аккаунта
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LogOutButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Properties.Settings.Default.currentUserEmail = "";
-
             Properties.Settings.Default.Save();
+            this.NavigationService.Navigate(new StartingPage());
         }
+
+
     }
 }

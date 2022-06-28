@@ -1,0 +1,83 @@
+﻿<Page x:Class="MaraphonSkills.Pages.MarathonResultsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MaraphonSkills.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MarathonResultsPage">
+
+    <Page.Resources>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="21" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="150" />
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Width" Value="150" />
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="6*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Результаты предыдущих гонок" Grid.ColumnSpan="2"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <TextBlock>
+                <Run Text="марафон: " />
+                <ComboBox />
+                <LineBreak />
+                <Run Text="Дистанция: "/>
+                <TextBox />
+            </TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <TextBlock>
+                <Run Text="Пол: " />
+                <ComboBox />
+                <LineBreak />
+                <Run Text="Категория: "/>
+                <ComboBox />
+                <Button Content="Поиск" />
+            </TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <TextBlock>
+                <Run Text="Всего бегунов:" FontWeight="Bold"/>
+                <Run />
+                <Run Text="Всего бегунов финишировало:" FontWeight="Bold"/>
+                <Run />
+                <Run Text="среднее время: " FontWeight="Bold"/>
+                <Run />
+            </TextBlock>
+        </StackPanel>
+
+        <DataGrid Grid.Row="3" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Место" Width="*" />
+                <DataGridTextColumn Header="Время" Width="2*"/>
+                <DataGridTextColumn Header="Имя бегуна" Width="3*"/>
+                <DataGridTextColumn Header="Страна" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>

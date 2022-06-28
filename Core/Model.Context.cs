@@ -35,13 +35,17 @@ namespace MaraphonSkills.Core
         public virtual DbSet<Registration> Registration { get; set; }
         public virtual DbSet<RegistrationEvent> RegistrationEvent { get; set; }
         public virtual DbSet<RegistrationStatus> RegistrationStatus { get; set; }
+        public virtual DbSet<Review> Review { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Runner> Runner { get; set; }
+        public virtual DbSet<Sponsor> Sponsor { get; set; }
         public virtual DbSet<Sponsorship> Sponsorship { get; set; }
         public virtual DbSet<Staff> Staff { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Timesheet> Timesheet { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<user3> user3 { get; set; }
         public virtual DbSet<Volunteer> Volunteer { get; set; }
+        public virtual DbSet<RunnerMarathon> RunnerMarathon { get; set; }
     }
 }
